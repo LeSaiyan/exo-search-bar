@@ -4,18 +4,17 @@ import "./right-form.scss";
 class RightForm extends Component {
   constructor(props) {
     super(props);
-
-    // this.props.forEach(element => {
-    //   console.log(element);
-    // });
   }
 
   render() {
     let cities = null;
     cities = this.props.citiesSuggestion.map((el, index) => {
-      return <div>{el}</div>;
+      return (
+        <div key={index} onClick={() => this.props.choosenCity(el)}>
+          {el}
+        </div>
+      );
     });
-    // console.log(this.props);
 
     return (
       <div className="right-form">

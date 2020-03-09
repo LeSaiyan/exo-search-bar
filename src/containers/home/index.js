@@ -24,7 +24,6 @@ class Home extends Component {
         .then(res => {
           let test = [];
           Object.values(res.data).forEach(element => {
-            //   console.log(element.local_name);
             test.push(element.local_name);
             this.setState({ suggestCities: test });
           });
@@ -32,13 +31,24 @@ class Home extends Component {
     }
   };
 
+  departChoosenCity = city => {
+    this.setState({ departCity: city });
+  };
+
   render() {
-    console.log(this.state.suggestCities);
+    console.log(this.state);
 
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
-        <LeftForm change={this.suggestHandler} click={this.oui} />
-        <RightForm citiesSuggestion={this.state.suggestCities} />
+        <LeftForm
+          data={this.state}
+          change={this.suggestHandler}
+          click={this.oui}
+        />
+        <RightForm
+          choosenCity={this.departChoosenCity}
+          citiesSuggestion={this.state.suggestCities}
+        />
       </div>
     );
   }
