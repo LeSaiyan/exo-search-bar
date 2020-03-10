@@ -11,27 +11,29 @@ class RightForm extends Component {
 
     console.log(this.props.data.fieldFocus);
 
-    if ((this.props.data.fieldFocus = "departCity")) {
+    if (this.props.data.fieldFocus === "departCity") {
       displayCities = this.props.data.suggestCities.map((el, index) => {
         return (
-          // <h3>Quel est votre trajet ?</h3>
-          <div key={index} onClick={() => this.props.choosenDepartCity(el)}>
-            {el}
+          <div>
+            {/* <h3>Quel est votre trajet ?</h3> */}
+            <div key={index} onClick={() => this.props.choosenDepartCity(el)}>
+              {el}
+            </div>
           </div>
         );
       });
-    } else if ((this.props.data.fieldFocus = "arrivalCity")) {
+    } else if (this.props.data.fieldFocus === "arrivalCity") {
       displayCities = this.props.data.suggestCities.map((el, index) => {
         return (
-          <div key={index} onClick={() => this.props.choosenArrivalCity(el)}>
-            <h3>Quel est votre trajet ?</h3>
-
-            {el}
+          <div>
+            {/* <h3>Choisissez une gare d’arrivée</h3> */}
+            <div key={index} onClick={() => this.props.choosenArrivalCity(el)}>
+              {el}
+            </div>
           </div>
         );
       });
     }
-
     return <div className="right-form">{displayCities}</div>;
   }
 }

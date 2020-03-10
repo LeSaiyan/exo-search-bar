@@ -27,6 +27,7 @@ class LeftForm extends Component {
               value={this.props.data.arrivalCity}
             />
           </div>
+          <button onClick={this.props.changeValue}>ok</button>
         </form>
       </div>
     );
