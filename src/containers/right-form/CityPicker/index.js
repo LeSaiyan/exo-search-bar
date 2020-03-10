@@ -2,7 +2,6 @@ import React from "react";
 
 const cityPicker = props => {
   let displayCities = null;
-  console.log(props.data.fieldFocus);
 
   if (props.data.fieldFocus === "departCity") {
     return (

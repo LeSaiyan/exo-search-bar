@@ -77,6 +77,8 @@ class Home extends Component {
   };
 
   focusFieldHandler = event => {
+    event.preventDefault();
+
     this.setState({ fieldFocus: event.target.name });
 
     if (event.target.name === "arrivalCity") {
@@ -97,7 +99,7 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
