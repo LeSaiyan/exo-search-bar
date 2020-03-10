@@ -3,14 +3,16 @@ import "./left-form.scss";
 
 class LeftForm extends Component {
   render() {
-    let value;
-    if (this.props.data.departCity !== "") {
-      value = this.props.data.departCity;
-    } else if (this.props.data.departCity === "") {
-      value = null;
-    }
+    let test = this.props.data.departCity;
 
-    console.log(this.props.data.departCity);
+    // let value;
+    // if (test) {
+    //   value = this.props.data.departCity;
+    // } else if (this.props.data.departCity === "") {
+    //   value = null;
+    // }
+
+    // console.log(this.props.data.departCity);
 
     return (
       <div className="left-form">
@@ -20,7 +22,7 @@ class LeftForm extends Component {
             <input
               onChange={this.props.change}
               placeholder="Saisissez votre gare de départ..."
-              value={value}
+              //   value={this.props.data.departCity}
             />
           </div>
           <div>

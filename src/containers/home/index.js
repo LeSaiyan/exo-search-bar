@@ -22,10 +22,10 @@ class Home extends Component {
             event.target.value
         )
         .then(res => {
-          let test = [];
+          let citiesName = [];
           Object.values(res.data).forEach(element => {
-            test.push(element.local_name);
-            this.setState({ suggestCities: test });
+            citiesName.push(element.local_name);
+            this.setState({ suggestCities: citiesName });
           });
         });
     }
