@@ -3,14 +3,13 @@ import "./left-form.scss";
 
 class LeftForm extends Component {
   render() {
-    console.log(this.props.data.departCity);
-
     return (
       <div className="left-form">
         <h3>Quel est votre trajet ?</h3>
         <form>
           <div>
             <input
+              onFocus={this.props.focusField}
               name="departCity"
               onChange={this.props.change}
               placeholder="Saisissez votre gare de départ..."
@@ -19,7 +18,14 @@ class LeftForm extends Component {
             />
           </div>
           <div>
-            <input />
+            <input
+              onFocus={this.props.focusField}
+              name="arrivalCity"
+              onChange={this.props.change}
+              placeholder="Saisissez votre gare d'arrivée..."
+              autoComplete="off"
+              value={this.props.data.arrivalCity}
+            />
           </div>
         </form>
       </div>
