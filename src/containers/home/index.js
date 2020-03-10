@@ -13,6 +13,8 @@ class Home extends Component {
   };
 
   suggestHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+
     if (event.target.value === "") {
       this.setState({ suggestCities: [] });
     } else if (event.target.value !== "") {
@@ -24,11 +26,21 @@ class Home extends Component {
         .then(res => {
           let citiesName = [];
           Object.values(res.data).forEach(element => {
-            citiesName.push(element.local_name);
+            citiesName.push(element.unique_name);
             this.setState({ suggestCities: citiesName });
           });
         });
     }
+    //   axios
+    //     .get("https://api.comparatrip.eu/cities/autocomplete/?q=" + text)
+    //     .then(res => {
+    //       let citiesName = [];
+    //       Object.values(res.data).forEach(element => {
+    //         citiesName.push(element.unique_name);
+    //         this.setState({ suggestCities: citiesName });
+    //       });
+    //     });
+    // }
   };
 
   departChoosenCity = city => {
@@ -36,13 +48,11 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
         <LeftForm
           data={this.state}
-          change={this.suggestHandler}
+          change={event => this.suggestHandler(event)}
           click={this.oui}
         />
         <RightForm

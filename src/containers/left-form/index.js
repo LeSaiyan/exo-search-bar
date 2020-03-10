@@ -3,16 +3,7 @@ import "./left-form.scss";
 
 class LeftForm extends Component {
   render() {
-    let test = this.props.data.departCity;
-
-    // let value;
-    // if (test) {
-    //   value = this.props.data.departCity;
-    // } else if (this.props.data.departCity === "") {
-    //   value = null;
-    // }
-
-    // console.log(this.props.data.departCity);
+    console.log(this.props.data.departCity);
 
     return (
       <div className="left-form">
@@ -20,9 +11,11 @@ class LeftForm extends Component {
         <form>
           <div>
             <input
+              name="departCity"
               onChange={this.props.change}
               placeholder="Saisissez votre gare de départ..."
-              //   value={this.props.data.departCity}
+              autoComplete="off"
+              value={this.props.data.departCity}
             />
           </div>
           <div>
@@ -35,3 +28,25 @@ class LeftForm extends Component {
 }
 
 export default LeftForm;
+
+// const leftForm = props => {
+//   return (
+//     <div className="left-form">
+//       <h3>Quel est votre trajet ?</h3>
+//       <form>
+//         <div>
+//           <input
+//             onChange={props.change}
+//             placeholder="Saisissez votre gare de départ..."
+//             value={props.data.departCity}
+//           />
+//         </div>
+//         <div>
+//           <input />
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default leftForm;
