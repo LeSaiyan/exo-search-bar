@@ -6,11 +6,22 @@ import axios from "axios";
 import RightForm from "../right-form";
 
 class Home extends Component {
+  options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  };
+
   state = {
     departCity: "",
     arrivalCity: "",
     fieldFocus: "",
-    suggestCities: []
+    suggestCities: [],
+    startDate: null,
+    startHour: "",
+    endDate: null,
+    endHour: ""
   };
 
   citiesName = [];
@@ -98,8 +109,26 @@ class Home extends Component {
     this.setState({ arrivalCity: departCity });
   };
 
+  onChangeDate = event => {
+    this.setState({
+      startDate: event.toLocaleDateString(undefined, this.options)
+    });
+  };
+
+  onChangeHour = event => {
+    if (this.state.fieldFocus === "startDate") {
+      this.setState({
+        startHour: event.target.dateTime
+      });
+    } else if (this.state.fieldFocus === "endDate") {
+      this.setState({
+        endDate: event.target.dateTime
+      });
+    }
+  };
+
   render() {
-    // console.log(this.state);
+    console.log(this.state);
 
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
@@ -113,6 +142,8 @@ class Home extends Component {
           choosenDepartCity={this.departChoosenCity}
           choosenArrivalCity={this.arrivalChoosenCity}
           data={this.state}
+          changeDate={e => this.onChangeDate(e)}
+          changeHour={e => this.onChangeHour(e)}
         />
       </div>
     );

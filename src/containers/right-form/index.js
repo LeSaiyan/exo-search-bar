@@ -5,10 +5,8 @@ import DatePicker from "./DatePicker";
 
 class RightForm extends Component {
   render() {
-    console.log(this.props.data.fieldFocus);
-
     return (
-      <div>
+      <div className="right-form">
         {this.props.data.fieldFocus === "arrivalCity" ||
         this.props.data.fieldFocus === "departCity" ? (
           <CityPicker
@@ -22,7 +20,10 @@ class RightForm extends Component {
 
         {this.props.data.fieldFocus === "startDate" ||
         this.props.data.fieldFocus === "endDate" ? (
-          <DatePicker />
+          <DatePicker
+            changed={this.props.changeDate}
+            clicked={this.props.changeHour}
+          />
         ) : (
           <div></div>
         )}

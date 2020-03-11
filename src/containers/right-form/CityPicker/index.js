@@ -9,12 +9,10 @@ const cityPicker = props => {
         <h3>Quel est votre trajet ?</h3>
 
         {
-          (displayCities = props.data.suggestCities.map((el, index) => {
+          (displayCities = props.data.suggestCities.map((el, i) => {
             return (
-              <div>
-                <div key={index} onClick={() => props.choosenDepartCity(el)}>
-                  {el}
-                </div>
+              <div key={i} onClick={() => props.choosenDepartCity(el)}>
+                {el}
               </div>
             );
           }))
@@ -26,12 +24,10 @@ const cityPicker = props => {
       <div className="right-form">
         <h3>Choisissez une gare d’arrivée</h3>
         {
-          (displayCities = props.data.suggestCities.map((el, index) => {
+          (displayCities = props.data.suggestCities.map((el, i) => {
             return (
-              <div>
-                <div key={index} onClick={() => props.choosenArrivalCity(el)}>
-                  {el}
-                </div>
+              <div key={i} onClick={() => props.choosenArrivalCity(el)}>
+                {el}
               </div>
             );
           }))

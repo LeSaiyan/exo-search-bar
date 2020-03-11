@@ -1,0 +1,51 @@
+h3 {
+    text-rendering: optimizeLegibility;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 15px;
+}
+
+.calendar {
+    border: none;
+}
+
+
+.calendar-container {
+    outline: 0;
+    border-radius: .3125em;
+    border: 1px solid #DCE3E6;
+    padding: 5px 15px;
+    text-align: center;
+    overflow-x: hidden;
+
+    hr {
+        margin: 5px -15px;
+        background-color: #DCE3E6;
+        border: 0;
+        outline: 0;
+        height: 1px;
+    }
+
+    .datetime {
+        display: table;
+        width: 100%;
+        margin: 13px auto 8px;
+        text-align: center;
+        white-space: nowrap;
+        user-select: none;
+        cursor: default;
+
+        time {
+            display: table-cell;
+            color: #13181A;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            min-width: 33px;
+            line-height: 25px;
+            margin: 0;
+            border-radius: 3px;
+            padding: 3px 0;
+        }
+    }
+}
