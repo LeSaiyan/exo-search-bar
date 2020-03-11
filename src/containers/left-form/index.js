@@ -49,6 +49,13 @@ class LeftForm extends Component {
               />
             </div>
           </div>
+
+          <div onFocus={this.props.focusField}>
+            <div>
+              <input name="passengers" type="button" />
+            </div>
+            <button></button>
+          </div>
         </form>
       </div>
     );

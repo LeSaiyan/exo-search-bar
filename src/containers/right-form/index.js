@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./right-form.scss";
 import CityPicker from "./CityPicker";
 import DatePicker from "./DatePicker";
+import PassengerForm from "./PassengerForm";
 
 class RightForm extends Component {
   render() {
@@ -23,7 +24,15 @@ class RightForm extends Component {
           <DatePicker
             changed={this.props.changeDate}
             clicked={this.props.changeHour}
+            data={this.props.data}
+            reset={this.props.reset}
           />
+        ) : (
+          <div></div>
+        )}
+
+        {this.props.data.fieldFocus === "passengers" ? (
+          <PassengerForm data={this.props.data} />
         ) : (
           <div></div>
         )}

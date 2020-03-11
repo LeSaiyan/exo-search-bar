@@ -21,7 +21,12 @@ class Home extends Component {
     startDate: null,
     startHour: "",
     endDate: null,
-    endHour: ""
+    endHour: "",
+    passengers: {
+      Jeune: 2,
+      Adulte: 1,
+      Senior: 1
+    }
   };
 
   citiesName = [];
@@ -110,9 +115,15 @@ class Home extends Component {
   };
 
   onChangeDate = event => {
-    this.setState({
-      startDate: event.toLocaleDateString(undefined, this.options)
-    });
+    if (this.state.fieldFocus === "startDate") {
+      this.setState({
+        startDate: event.toLocaleDateString(undefined, this.options)
+      });
+    } else if (this.state.fieldFocus === "endDate") {
+      this.setState({
+        endDate: event.toLocaleDateString(undefined, this.options)
+      });
+    }
   };
 
   onChangeHour = event => {
@@ -122,9 +133,16 @@ class Home extends Component {
       });
     } else if (this.state.fieldFocus === "endDate") {
       this.setState({
-        endDate: event.target.dateTime
+        endHour: event.target.dateTime
       });
     }
+  };
+
+  resetEndHandler = event => {
+    this.setState({
+      endDate: null,
+      endHour: null
+    });
   };
 
   render() {
@@ -139,11 +157,13 @@ class Home extends Component {
           changeValue={this.changeDepartArrivalHandler}
         />
         <RightForm
+          data={this.state}
           choosenDepartCity={this.departChoosenCity}
           choosenArrivalCity={this.arrivalChoosenCity}
           data={this.state}
           changeDate={e => this.onChangeDate(e)}
           changeHour={e => this.onChangeHour(e)}
+          reset={this.resetEndHandler}
         />
       </div>
     );
