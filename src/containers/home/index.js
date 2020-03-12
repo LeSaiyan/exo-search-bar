@@ -23,7 +23,7 @@ class Home extends Component {
     endDate: null,
     endHour: "",
     passengers: {
-      Jeune: 2,
+      Junior: 2,
       Adulte: 1,
       Senior: 1
     }
@@ -145,8 +145,22 @@ class Home extends Component {
     });
   };
 
+  onSelectChange = event => {
+    const oldCount = this.state.passengers[event.value];
+    const updatedCount = oldCount + 1;
+    const updatedPassengers = {
+      ...this.state.passengers
+    };
+
+    updatedPassengers[event.value] = updatedCount;
+
+    this.setState({ passengers: updatedPassengers });
+  };
+
+  addPassengers = event => {};
+
   render() {
-    console.log(this.state);
+    console.log(this.state.passengers);
 
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
@@ -160,10 +174,10 @@ class Home extends Component {
           data={this.state}
           choosenDepartCity={this.departChoosenCity}
           choosenArrivalCity={this.arrivalChoosenCity}
-          data={this.state}
           changeDate={e => this.onChangeDate(e)}
           changeHour={e => this.onChangeHour(e)}
           reset={this.resetEndHandler}
+          test={this.onSelectChange}
         />
       </div>
     );

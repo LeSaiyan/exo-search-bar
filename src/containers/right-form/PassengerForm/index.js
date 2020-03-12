@@ -1,25 +1,28 @@
 import React from "react";
+import ReactSelect from "react-select";
+
+const options = [
+  { value: "Junior", label: "Jeune (0 - 25)" },
+  { value: "Adulte", label: "Adulte (26 - 59)" },
+  { value: "Senior", label: "Senior (60+)" }
+];
 
 const passengerForm = props => {
-  console.log(props.data.passengers);
-
-  console.log(props.data.passengers);
-
   let displayPassengers = Object.keys(props.data.passengers).reduce(
     (arr, key) => {
       const amount = props.data.passengers[key];
       return amount > 0
         ? [
             ...arr,
-            [...Array(amount)].map(index => (
-              <li key={key}>
-                <div>
-                  <select>
-                    <option value="Jeune">Jeune (0 - 25)</option>
-                    <option value="Adulte">Adulte (26 - 59)</option>
-                    <option value="Senior">Senior (60+)</option>
-                  </select>
-                </div>
+            [...Array(amount)].map(i => (
+              <li key={i}>
+                <ReactSelect
+                  options={options}
+                  onChange={event => {
+                    props.changed(event);
+                  }}
+                />
+
                 <div>
                   <button>Cartes et abonnements</button>
                 </div>
