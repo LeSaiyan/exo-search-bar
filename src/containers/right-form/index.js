@@ -33,10 +33,9 @@ class RightForm extends Component {
 
         {this.props.data.fieldFocus === "passengers" ? (
           <PassengerForm
-            // values={companyStatus}
-            // label="Company Status"
             changed={this.props.test}
             data={this.props.data}
+            removed={this.props.remove}
           />
         ) : (
           <div></div>

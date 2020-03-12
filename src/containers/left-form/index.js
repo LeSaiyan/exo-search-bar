@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./left-form.scss";
+import departLogo from "../../assets/images/departures.png";
+import arrivalLogo from "../../assets/images/arrival.png";
 
 class LeftForm extends Component {
   render() {
@@ -7,8 +9,11 @@ class LeftForm extends Component {
       <div className="left-form">
         <h3>Quel est votre trajet ?</h3>
         <form>
-          <div>
-            <div>
+          <div className="cityFields">
+            <div
+              className="departField"
+              style={{ backgroundImage: `url(${departLogo})` }}
+            >
               <input
                 onFocus={this.props.focusField}
                 name="departCity"
@@ -18,7 +23,10 @@ class LeftForm extends Component {
                 value={this.props.data.departCity}
               />
             </div>
-            <div>
+            <div
+              className="departField"
+              style={{ backgroundImage: `url(${arrivalLogo})` }}
+            >
               <input
                 onFocus={this.props.focusField}
                 name="arrivalCity"
@@ -28,7 +36,9 @@ class LeftForm extends Component {
                 value={this.props.data.arrivalCity}
               />
             </div>
-            <button onClick={this.props.changeValue}>ok</button>
+            <div>
+              <button onClick={this.props.changeValue}>ok</button>
+            </div>
           </div>
 
           <div>

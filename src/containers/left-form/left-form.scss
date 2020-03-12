@@ -1,14 +1,56 @@
 .left-form {
-    width: 35%;
+    width: 38%;
     background-color: white;
     border-radius: 5px;
     padding: 24px 40px;
     text-align: left;
+    height: 460px;
 
     h3 {
         text-rendering: optimizeLegibility;
         font-size: 20px;
         font-weight: 400;
         margin: 0 0 15px;
+    }
+
+    .cityFields {
+        margin-bottom: 29px;
+        border-color: #01C3A7;
+
+        .departField {
+            background-size: 8%;
+            background-repeat: no-repeat;
+            background-position: 8px center;
+            border: 1px solid #DCE3E6;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        input {
+            border: none;
+            padding: 20px 0 11px 35px;
+            width: 88%;
+            background-color: #F6F7FA;
+            box-shadow: inset 0 1px 0 0 #EAEBEE;
+            opacity: .5;
+        }
+
+        input:focus {
+            border: none;
+            padding: 20px 0 11px 35px;
+            width: 88%;
+            background-color: #FFFFFF;
+            box-shadow: inset 0 1px 0 0 #01C3A7;
+            opacity: .5;
+            border: none;
+        }
+
+        button {
+            position: absolute;
+            top: 27px;
+            right: -17px;
+            width: 34px;
+            height: 34px;
+        }
     }
 }

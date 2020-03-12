@@ -157,28 +157,41 @@ class Home extends Component {
     this.setState({ passengers: updatedPassengers });
   };
 
-  addPassengers = event => {};
+  removePassenger = event => {
+    const oldCount = this.state.passengers[event.target.name];
+    const updatedCount = oldCount - 1;
+    const updatedPassengers = {
+      ...this.state.passengers
+    };
+
+    updatedPassengers[event.target.name] = updatedCount;
+
+    this.setState({ passengers: updatedPassengers });
+  };
 
   render() {
     console.log(this.state.passengers);
 
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
-        <LeftForm
-          data={this.state}
-          change={event => this.suggestHandler(event)}
-          focusField={event => this.focusFieldHandler(event)}
-          changeValue={this.changeDepartArrivalHandler}
-        />
-        <RightForm
-          data={this.state}
-          choosenDepartCity={this.departChoosenCity}
-          choosenArrivalCity={this.arrivalChoosenCity}
-          changeDate={e => this.onChangeDate(e)}
-          changeHour={e => this.onChangeHour(e)}
-          reset={this.resetEndHandler}
-          test={this.onSelectChange}
-        />
+        <div className="fullForm">
+          <LeftForm
+            data={this.state}
+            change={event => this.suggestHandler(event)}
+            focusField={event => this.focusFieldHandler(event)}
+            changeValue={this.changeDepartArrivalHandler}
+          />
+          <RightForm
+            data={this.state}
+            choosenDepartCity={this.departChoosenCity}
+            choosenArrivalCity={this.arrivalChoosenCity}
+            changeDate={e => this.onChangeDate(e)}
+            changeHour={e => this.onChangeHour(e)}
+            reset={this.resetEndHandler}
+            test={this.onSelectChange}
+            remove={e => this.removePassenger(e)}
+          />
+        </div>
       </div>
     );
   }
