@@ -36,6 +36,7 @@ class RightForm extends Component {
             changed={this.props.test}
             data={this.props.data}
             removed={this.props.remove}
+            added={this.props.add}
           />
         ) : (
           <div></div>

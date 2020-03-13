@@ -4,6 +4,7 @@ import background from "../../assets/images/green-palm-trees-near-sea-under-blue
 import LeftForm from "../left-form";
 import axios from "axios";
 import RightForm from "../right-form";
+import nextId from "react-id-generator";
 
 class Home extends Component {
   options = {
@@ -22,11 +23,17 @@ class Home extends Component {
     startHour: "",
     endDate: null,
     endHour: "",
-    passengers: {
-      Junior: 2,
-      Adulte: 1,
-      Senior: 1
-    }
+    // passengers: {
+    //   Junior: 2,
+    //   Adulte: 1,
+    //   Senior: 1
+    // },
+    passengers: [
+      {
+        value: "adulte",
+        id: nextId()
+      }
+    ]
   };
 
   citiesName = [];
@@ -145,14 +152,23 @@ class Home extends Component {
     });
   };
 
-  onSelectChange = event => {
-    const oldCount = this.state.passengers[event.value];
-    const updatedCount = oldCount + 1;
-    const updatedPassengers = {
-      ...this.state.passengers
-    };
+  onSelectChange = (event, id) => {
+    const updatedPassengers = [...this.state.passengers];
 
-    updatedPassengers[event.value] = updatedCount;
+    updatedPassengers.map(element => {
+      if (element.id === id) {
+        element.value = event.value;
+      }
+    });
+
+    console.log("updatedPassengers", updatedPassengers);
+    this.setState({ passengers: updatedPassengers });
+  };
+
+  addPassenger = event => {
+    const updatedPassengers = [...this.state.passengers];
+
+    updatedPassengers.push({ value: "adulte", id: nextId() });
 
     this.setState({ passengers: updatedPassengers });
   };
@@ -170,8 +186,6 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state.passengers);
-
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
         <div className="fullForm">
@@ -190,6 +204,7 @@ class Home extends Component {
             reset={this.resetEndHandler}
             test={this.onSelectChange}
             remove={e => this.removePassenger(e)}
+            add={e => this.addPassenger(e)}
           />
         </div>
       </div>
