@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./left-form.scss";
 import departLogo from "../../assets/images/departures.png";
 import arrivalLogo from "../../assets/images/arrival.png";
+import changeLogo from "../../assets/images/change.png";
+import calendarLogo from "../../assets/images/calendar.png";
 
 class LeftForm extends Component {
   render() {
@@ -36,27 +38,41 @@ class LeftForm extends Component {
                 value={this.props.data.arrivalCity}
               />
             </div>
-            <div>
-              <button onClick={this.props.changeValue}>ok</button>
+            <div className="change" onClick={this.props.changeValue}>
+              <img src={changeLogo} />
             </div>
           </div>
 
-          <div>
-            <div>
+          <div className="cityFields">
+            <div
+              className="departField"
+              style={{ backgroundImage: `url(${calendarLogo})` }}
+            >
               <input
                 onFocus={this.props.focusField}
                 name="startDate"
-                value="Aller"
+                placeholder="Aller"
                 type="button"
+                value={this.props.data.startDate}
               />
+              {this.props.data.startHour ? (
+                <span>à partir de {this.props.data.startHour}</span>
+              ) : null}
             </div>
-            <div>
+            <div
+              className="departField"
+              style={{ backgroundImage: `url(${calendarLogo})` }}
+            >
               <input
                 onFocus={this.props.focusField}
                 name="endDate"
-                value="Retour"
+                placeholder="Retour"
                 type="button"
+                value={this.props.data.endHour}
               />
+              {this.props.data.endHour ? (
+                <span>à partir de {this.props.data.endHour}</span>
+              ) : null}
             </div>
           </div>
 

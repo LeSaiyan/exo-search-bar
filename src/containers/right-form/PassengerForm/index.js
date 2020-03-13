@@ -7,17 +7,27 @@ class PassengerForm extends Component {
     { value: "adulte", label: "Adulte (26 - 59)" },
     { value: "senior", label: "Senior (60+)" }
   ];
+
   render() {
     let displayPassengers = null;
 
     displayPassengers = Object.values(this.props.data.passengers).map(
       (element, i) => {
+        let defaultValue = null;
+        if (element.value === "junior") {
+          defaultValue = { value: "junior", label: "Jeune (0 - 25)" };
+        } else if (element.value === "adulte") {
+          defaultValue = { value: "adulte", label: "Adulte (26 - 59)" };
+        } else if (element.value === "senior") {
+          defaultValue = { value: "senior", label: "Senior (60+)" };
+        }
+
         return (
           <div>
             <button onClick={this.props.removed}>X</button>
             <Select
               key={element.id}
-              defaultValue={}
+              defaultValue={defaultValue}
               options={this.options}
               onChange={event => {
                 this.props.changed(event, element.id);

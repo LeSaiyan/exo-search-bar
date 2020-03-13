@@ -19,9 +19,9 @@ class Home extends Component {
     arrivalCity: "",
     fieldFocus: "",
     suggestCities: [],
-    startDate: null,
+    startDate: "",
     startHour: "",
-    endDate: null,
+    endDate: "",
     endHour: "",
     // passengers: {
     //   Junior: 2,
