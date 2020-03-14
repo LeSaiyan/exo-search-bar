@@ -23,11 +23,6 @@ class Home extends Component {
     startHour: "",
     endDate: "",
     endHour: "",
-    // passengers: {
-    //   Junior: 2,
-    //   Adulte: 1,
-    //   Senior: 1
-    // },
     passengers: [
       {
         value: "adulte",

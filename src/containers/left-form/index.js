@@ -4,6 +4,8 @@ import departLogo from "../../assets/images/departures.png";
 import arrivalLogo from "../../assets/images/arrival.png";
 import changeLogo from "../../assets/images/change.png";
 import calendarLogo from "../../assets/images/calendar.png";
+import passengerLogo from "../../assets/images/user.png";
+import plusLogo from "../../assets/images/plus.png";
 
 class LeftForm extends Component {
   render() {
@@ -68,7 +70,7 @@ class LeftForm extends Component {
                 name="endDate"
                 placeholder="Retour"
                 type="button"
-                value={this.props.data.endHour}
+                value={this.props.data.endDate}
               />
               {this.props.data.endHour ? (
                 <span>à partir de {this.props.data.endHour}</span>
@@ -76,11 +78,14 @@ class LeftForm extends Component {
             </div>
           </div>
 
-          <div onFocus={this.props.focusField}>
-            <div>
+          <div onFocus={this.props.focusField} className="passengersField">
+            <div style={{ backgroundImage: `url(${passengerLogo})` }}>
               <input name="passengers" type="button" />
             </div>
-            <button></button>
+            <button
+              style={{ backgroundImage: `url(${plusLogo})` }}
+              disabled
+            ></button>
           </div>
         </form>
       </div>
