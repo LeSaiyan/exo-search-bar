@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+
 import "./left-form.scss";
+import "../../assets/sass/global.scss";
+
 import departLogo from "../../assets/images/departures.png";
 import arrivalLogo from "../../assets/images/arrival.png";
 import changeLogo from "../../assets/images/change.png";
@@ -10,22 +13,6 @@ import travelogo from "../../assets/images/travel.png";
 
 class LeftForm extends Component {
   render() {
-    let count = null;
-
-    // count = Object.values(this.props.data.passengers).map((element, i) => {
-    //   let defaultValue = null;
-    //   if (element.value === "junior") {
-    //     let junior = ()
-    //   } else if (element.value === "adulte") {
-    //     let adulte = +1;
-    //   } else if (element.value === "senior") {
-    //     let senior = +1;
-    //   }
-
-    //   return( )
-
-    // });
-
     return (
       <div className="left-form">
         <h3>Quel est votre trajet ?</h3>
@@ -120,31 +107,11 @@ class LeftForm extends Component {
             ></button>
           </div>
         </form>
+
+        <button className="green-btn">Rechercher</button>
       </div>
     );
   }
 }
 
 export default LeftForm;
-
-// const leftForm = props => {
-//   return (
-//     <div className="left-form">
-//       <h3>Quel est votre trajet ?</h3>
-//       <form>
-//         <div>
-//           <input
-//             onChange={props.change}
-//             placeholder="Saisissez votre gare de départ..."
-//             value={props.data.departCity}
-//           />
-//         </div>
-//         <div>
-//           <input />
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default leftForm;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import "./passenger-form.scss";
+import "../../../assets/sass/global.scss";
 
 class PassengerForm extends Component {
   options = [
@@ -56,7 +57,7 @@ class PassengerForm extends Component {
         <div>
           <ul>{displayPassengers}</ul>
         </div>
-        <button className="addPassenger" onClick={this.props.added}>
+        <button className="green-btn" onClick={this.props.added}>
           Ajouter un autre passager
         </button>
       </div>

@@ -6,20 +6,7 @@ h3 {
 }
 
 
-.reset {
-    padding: 10px 10px 10px 10px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    border: solid 1px #01C3A7;
-    background-color: #D3F9F4;
-    color: #059E87;
-    margin-top: 10%;
-}
 
-.reset:hover {
-    background-color: rgb(230, 247, 244);
-    cursor: pointer;
-}
 
 .calendar {
     border: none;
@@ -30,7 +17,6 @@ h3 {
     outline: 0;
     border-radius: .3125em;
     border: 1px solid #DCE3E6;
-    padding: 5px 15px;
     text-align: center;
     overflow-x: hidden;
 

@@ -2,6 +2,7 @@ import React from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./date-picker.scss";
+import "../../../assets/sass/global.scss";
 
 const datePicker = props => {
   let dateTimePick = null;
@@ -30,7 +31,7 @@ const datePicker = props => {
     return (
       <div>
         <h3>Choisissez la date du retour</h3>
-        <button className="reset" onClick={props.reset}>
+        <button className="green-btn" onClick={props.reset}>
           Pas de retour
         </button>
         <div className="calendar-container">
