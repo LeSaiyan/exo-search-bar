@@ -1,0 +1,42 @@
+.passengerForm {
+
+    ul {
+        border: none;
+    }
+
+    .passenger {
+        display: flex;
+        margin: 10px;
+        border-radius: .3125em;
+        border: 1px solid #DCE3E6;
+
+        button {
+            background-color: white;
+            border: 0;
+            opacity: 0.5;
+        }
+
+        button:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .select {
+            width: 50%;
+        }
+    }
+
+    .addPassenger {
+        border-radius: 6px;
+        border: solid 1px #01C3A7;
+        background-color: #D3F9F4;
+        color: #059E87;
+        margin-top: 10%;
+        padding: 10px;
+    }
+
+    .addPassenger:hover {
+        background-color: white;
+        cursor: pointer;
+    }
+}

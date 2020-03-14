@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import "./passenger-form.scss";
 
 class PassengerForm extends Component {
   options = [
@@ -23,9 +24,16 @@ class PassengerForm extends Component {
         }
 
         return (
-          <div>
-            <button onClick={this.props.removed}>X</button>
+          <div className="passenger" key={i}>
+            <button
+              onClick={() => {
+                this.props.removed(element.id);
+              }}
+            >
+              X
+            </button>
             <Select
+              className="select"
               key={element.id}
               defaultValue={defaultValue}
               options={this.options}
@@ -43,14 +51,14 @@ class PassengerForm extends Component {
     );
 
     return (
-      <div>
+      <div className="passengerForm">
         <h3>Choisissez vos passagers</h3>
         <div>
           <ul>{displayPassengers}</ul>
-          <button onClick={this.props.added}>
-            <span>Ajouter un autre passager</span>
-          </button>
         </div>
+        <button className="addPassenger" onClick={this.props.added}>
+          Ajouter un autre passager
+        </button>
       </div>
     );
   }

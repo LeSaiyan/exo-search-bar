@@ -9,11 +9,14 @@ class RightForm extends Component {
     return (
       <div className="right-form">
         {this.props.data.fieldFocus === "arrivalCity" ||
-        this.props.data.fieldFocus === "departCity" ? (
+        this.props.data.fieldFocus === "departCity" ||
+        this.props.data.fieldFocus === "intermediateCity" ? (
           <CityPicker
             data={this.props.data}
             choosenArrivalCity={this.props.choosenArrivalCity}
             choosenDepartCity={this.props.choosenDepartCity}
+            addIntermediateCity={this.props.addIntermediateCity}
+            choosenIntermediateCity={this.props.choosenIntermediateCity}
           />
         ) : (
           <div></div>

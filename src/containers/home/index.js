@@ -17,6 +17,7 @@ class Home extends Component {
   state = {
     departCity: "",
     arrivalCity: "",
+    intermediateCity: null,
     fieldFocus: "",
     suggestCities: [],
     startDate: "",
@@ -64,7 +65,10 @@ class Home extends Component {
       [event.target.name]: event.target.value
     });
     if (event.target.value === "") {
-      if (this.state.fieldFocus === "arrivalCity") {
+      if (
+        this.state.fieldFocus === "arrivalCity" ||
+        this.state.fieldFocus === "intermediateCity"
+      ) {
         if (this.state.departCity) {
           this.getPopularCitiesArrival(this.state.departCity);
         }
@@ -86,6 +90,14 @@ class Home extends Component {
     }
   };
 
+  addIntermediateCity = () => {
+    if (this.state.intermediateCity == null)
+      this.setState({ intermediateCity: "" });
+    else if (this.state.intermediateCity !== null) {
+      this.setState({ intermediateCity: null });
+    }
+  };
+
   departChoosenCity = city => {
     this.setState({ departCity: city });
   };
@@ -94,12 +106,19 @@ class Home extends Component {
     this.setState({ arrivalCity: city });
   };
 
+  intermediateChoosenCity = city => {
+    this.setState({ intermediateCity: city });
+  };
+
   focusFieldHandler = event => {
     event.preventDefault();
 
     this.setState({ fieldFocus: event.target.name });
 
-    if (event.target.name === "arrivalCity") {
+    if (
+      event.target.name === "arrivalCity" ||
+      event.target.name === "intermediateCity"
+    ) {
       if (this.state.departCity) {
         this.getPopularCitiesArrival(this.state.departCity);
       }
@@ -156,7 +175,6 @@ class Home extends Component {
       }
     });
 
-    console.log("updatedPassengers", updatedPassengers);
     this.setState({ passengers: updatedPassengers });
   };
 
@@ -168,19 +186,20 @@ class Home extends Component {
     this.setState({ passengers: updatedPassengers });
   };
 
-  removePassenger = event => {
-    const oldCount = this.state.passengers[event.target.name];
-    const updatedCount = oldCount - 1;
-    const updatedPassengers = {
-      ...this.state.passengers
-    };
+  removePassenger = id => {
+    const passengers = [...this.state.passengers];
 
-    updatedPassengers[event.target.name] = updatedCount;
-
-    this.setState({ passengers: updatedPassengers });
+    if (passengers.length > 1) {
+      const updatedPassengers = passengers.filter(passenger => {
+        return passenger.id !== id;
+      });
+      this.setState({ passengers: updatedPassengers });
+    }
   };
 
   render() {
+    console.log(this.state);
+
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
         <div className="fullForm">
@@ -194,11 +213,13 @@ class Home extends Component {
             data={this.state}
             choosenDepartCity={this.departChoosenCity}
             choosenArrivalCity={this.arrivalChoosenCity}
+            choosenIntermediateCity={this.intermediateChoosenCity}
+            addIntermediateCity={this.addIntermediateCity}
             changeDate={e => this.onChangeDate(e)}
             changeHour={e => this.onChangeHour(e)}
             reset={this.resetEndHandler}
             test={this.onSelectChange}
-            remove={e => this.removePassenger(e)}
+            remove={el => this.removePassenger(el)}
             add={e => this.addPassenger(e)}
           />
         </div>

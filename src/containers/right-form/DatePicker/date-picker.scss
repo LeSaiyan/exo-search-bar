@@ -5,6 +5,22 @@ h3 {
     margin: 0 0 15px;
 }
 
+
+.reset {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: solid 1px #01C3A7;
+    background-color: #D3F9F4;
+    color: #059E87;
+    margin-top: 10%;
+}
+
+.reset:hover {
+    background-color: rgb(230, 247, 244);
+    cursor: pointer;
+}
+
 .calendar {
     border: none;
 }
@@ -46,6 +62,11 @@ h3 {
             margin: 0;
             border-radius: 3px;
             padding: 3px 0;
+        }
+
+        time:hover {
+            cursor: pointer;
+            background-color: #e6f7f4;
         }
     }
 }

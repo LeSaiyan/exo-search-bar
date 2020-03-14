@@ -6,9 +6,26 @@ import changeLogo from "../../assets/images/change.png";
 import calendarLogo from "../../assets/images/calendar.png";
 import passengerLogo from "../../assets/images/user.png";
 import plusLogo from "../../assets/images/plus.png";
+import travelogo from "../../assets/images/travel.png";
 
 class LeftForm extends Component {
   render() {
+    let count = null;
+
+    // count = Object.values(this.props.data.passengers).map((element, i) => {
+    //   let defaultValue = null;
+    //   if (element.value === "junior") {
+    //     let junior = ()
+    //   } else if (element.value === "adulte") {
+    //     let adulte = +1;
+    //   } else if (element.value === "senior") {
+    //     let senior = +1;
+    //   }
+
+    //   return( )
+
+    // });
+
     return (
       <div className="left-form">
         <h3>Quel est votre trajet ?</h3>
@@ -27,6 +44,21 @@ class LeftForm extends Component {
                 value={this.props.data.departCity}
               />
             </div>
+            {this.props.data.intermediateCity !== null ? (
+              <div
+                className="departField"
+                style={{ backgroundImage: `url(${travelogo})` }}
+              >
+                <input
+                  onFocus={this.props.focusField}
+                  name="intermediateCity"
+                  onChange={this.props.change}
+                  placeholder="Via"
+                  autoComplete="off"
+                  value={this.props.data.intermediateCity}
+                />
+              </div>
+            ) : null}
             <div
               className="departField"
               style={{ backgroundImage: `url(${arrivalLogo})` }}

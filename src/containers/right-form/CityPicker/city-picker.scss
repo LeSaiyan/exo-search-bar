@@ -5,7 +5,6 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: auto;
             max-height: 289px;
 
             li {
@@ -26,4 +25,22 @@
                 cursor: pointer;
                 transition: 0.5s;
             }
+        }
+
+        .via {
+            background-image: url(https://assets.trainline.eu/assets/images/add-via-ff2137e….svg);
+            background-repeat: no-repeat;
+            background-position: 11px center;
+            background-size: 20px;
+            padding: 10px 10px 10px 35px;
+            border-radius: 6px;
+            border: solid 1px #01C3A7;
+            background-color: #D3F9F4;
+            color: #059E87;
+            margin-top: 10%;
+        }
+
+        .via:hover {
+            background-color: rgb(230, 247, 244);
+            cursor: pointer;
         }

@@ -15,8 +15,6 @@ const datePicker = props => {
     );
   });
 
-  let displayDates = null;
-
   if (props.data.fieldFocus === "startDate") {
     return (
       <div>
@@ -32,7 +30,9 @@ const datePicker = props => {
     return (
       <div>
         <h3>Choisissez la date du retour</h3>
-        <button onClick={props.reset}>Pas de retour</button>
+        <button className="reset" onClick={props.reset}>
+          Pas de retour
+        </button>
         <div className="calendar-container">
           <Calendar className="calendar" onChange={props.changed} />
           <hr></hr>
@@ -41,8 +41,6 @@ const datePicker = props => {
       </div>
     );
   }
-
-  return <div> {displayDates} </div>;
 };
 
 export default datePicker;
