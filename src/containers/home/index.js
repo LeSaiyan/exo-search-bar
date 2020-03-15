@@ -5,6 +5,7 @@ import LeftForm from "../left-form";
 import axios from "axios";
 import RightForm from "../right-form";
 import nextId from "react-id-generator";
+import Modal from "../../components/UI/Modal/Modal";
 
 class Home extends Component {
   options = {
@@ -29,7 +30,8 @@ class Home extends Component {
         value: "adulte",
         id: nextId()
       }
-    ]
+    ],
+    resume: false
   };
 
   citiesName = [];
@@ -197,17 +199,30 @@ class Home extends Component {
     }
   };
 
+  openModal = () => {
+    this.setState({ resume: true });
+  };
+  closeModal = () => {
+    this.setState({ resume: false });
+  };
+
   render() {
     console.log(this.state);
 
     return (
       <div className="home" style={{ backgroundImage: `url(${background})` }}>
+        <Modal
+          show={this.state.resume}
+          modalClosed={this.closeModal}
+          data={this.state}
+        />
         <div className="fullForm">
           <LeftForm
             data={this.state}
             change={event => this.suggestHandler(event)}
             focusField={event => this.focusFieldHandler(event)}
             changeValue={this.changeDepartArrivalHandler}
+            resume={this.openModal}
           />
           <RightForm
             data={this.state}

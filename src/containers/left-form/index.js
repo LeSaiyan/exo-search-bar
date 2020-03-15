@@ -60,7 +60,7 @@ class LeftForm extends Component {
               />
             </div>
             <div className="change" onClick={this.props.changeValue}>
-              <img src={changeLogo} />
+              <img src={changeLogo} alt="Logo" />
             </div>
           </div>
 
@@ -108,7 +108,9 @@ class LeftForm extends Component {
           </div>
         </form>
 
-        <button className="green-btn">Rechercher</button>
+        <button onClick={this.props.resume} className="green-btn">
+          Rechercher
+        </button>
       </div>
     );
   }
